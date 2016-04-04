@@ -11,26 +11,18 @@ import XCTest
 
 class Buzz_Movie_iOSTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    //MARK: FoodTracker Tests
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    //Testing initializer
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testMovieInitialization() {
+        let potentialMovie = Movie(name: "Titanic", rating: 3, image: nil)
+        XCTAssertNotNil(potentialMovie)
+        let potentialMovie2 = Movie(name: "", rating: 3, image: nil)
+        XCTAssertNil(potentialMovie2, "Name is empty string")
+        let potentialMovie3 = Movie(name: "sdf", rating: 3, image: nil)
+        XCTAssertNotNil(potentialMovie3)
     }
     
 }
