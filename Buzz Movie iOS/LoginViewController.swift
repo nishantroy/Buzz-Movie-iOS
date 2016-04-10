@@ -16,8 +16,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        logoutButton.hidden = true
     }
     
     
@@ -39,15 +42,21 @@ class LoginViewController: UIViewController {
         
         if (email != "" && password != "") { //check that password and email are entered
             BASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
-                if (error == nil) { //check if login was successful
+                if (error != nil) { //check if login was successful
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                    
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     print ("Logged in :)")
                     
                     self.performSegueWithIdentifier("loginSuccessful", sender: nil)
                     self.logoutButton.hidden = false
-                } else {
-                    print(error)
                 }
             })
         } else { //otherwise, return error and show alert
