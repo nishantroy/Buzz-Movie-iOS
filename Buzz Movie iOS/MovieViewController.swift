@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
@@ -18,6 +19,8 @@ class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     
     var movie:Movie?
+    
+    //var database = Firebase(url: "https://buzzmovieios.firebaseio.com/")
     
 
     
