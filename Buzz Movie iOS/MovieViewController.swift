@@ -73,6 +73,10 @@ class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         navigationItem.title = textField.text
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -117,6 +121,7 @@ class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             movie = Movie(name: name, rating: rating, image: photo)
         }
     }
+    
 
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
@@ -130,6 +135,8 @@ class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
+    
+    
     
 
 }

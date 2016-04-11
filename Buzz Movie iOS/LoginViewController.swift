@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         logoutButton.hidden = true
+        
+        email.delegate = self
+        password.delegate = self
     }
     
     
@@ -108,6 +111,15 @@ class LoginViewController: UIViewController {
         
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         self.logoutButton.hidden = true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
