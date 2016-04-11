@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import Firebase
 
 class LoginViewController: UIViewController {
     //MARK: Properties
@@ -43,13 +43,45 @@ class LoginViewController: UIViewController {
         if (email != "" && password != "") { //check that password and email are entered
             BASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
                 if (error != nil) { //check if login was successful
-                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
-                    
-                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    
-                    alert.addAction(action)
-                    
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    if let errorCode = FAuthenticationError(rawValue: error.code) {
+                        switch (errorCode) {
+                        case .UserDoesNotExist:
+                            let alert = UIAlertController(title: "Error", message: "This user does not exist", preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        case .InvalidEmail:
+                            let alert = UIAlertController(title: "Error", message: "Invalid email", preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        case .InvalidPassword:
+                            let alert = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        default:
+                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                    }
                 } else {
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     

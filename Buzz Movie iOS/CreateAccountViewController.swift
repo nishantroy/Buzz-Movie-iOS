@@ -8,14 +8,15 @@
 
 import UIKit
 import Foundation
-//import Firebase
+import Firebase
 
 class CreateAccountViewController: UIViewController {
 
     //MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var majorTextField: UITextField!
     
     //MARK: Actions
     @IBAction func createAccountAction(sender: UIButton) {
@@ -23,7 +24,15 @@ class CreateAccountViewController: UIViewController {
         
         let password = self.passwordTextField.text
         
-        if (email != "" && password != "") {
+        let name = self.nameTextField.text
+        
+        let major = self.majorTextField.text
+        
+        let usersRef = BASE_REF.childByAppendingPath("users")
+        
+        if (email != "" && password != "" && name != "" && major != "") {
+            
+    
             
             BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) -> Void in
         
@@ -34,6 +43,12 @@ class CreateAccountViewController: UIViewController {
                             
                             print("Account created :)")
                             
+                            let userDict = ["Name": name!, "Major": major!]
+                            
+                            let uid = authData.uid
+                            
+                            usersRef.childByAppendingPath(uid).setValue(userDict)
+                            
                             self.dismissViewControllerAnimated(true, completion: nil)
                             
                         } else {
@@ -42,11 +57,31 @@ class CreateAccountViewController: UIViewController {
                     })
             
                 } else {
-                    print(error)
+                    if let errorCode = FAuthenticationError(rawValue: error.code) {
+                        switch (errorCode) {
+                        case .EmailTaken:
+                            let alert = UIAlertController(title: "Error", message: "Email is already taken!", preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        default:
+                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .Alert)
+                            
+                            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                            
+                            alert.addAction(action)
+                            
+                            self.presentViewController(alert, animated: true, completion: nil)
+                        }
+                    }
                 }
             })
         } else {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Error", message: "Enter email, password, name and major", preferredStyle: .Alert)
             
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             

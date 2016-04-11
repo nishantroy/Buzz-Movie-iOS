@@ -10,9 +10,12 @@ import Foundation
 import UIKit
 import Firebase
 
+//MARK: Properties
 
 let BASE_REF = Firebase(url: "https://buzzmovieios.firebaseio.com/")
 
+
+//Get current user from Firebase
 var currentUser: Firebase
 {
     let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
