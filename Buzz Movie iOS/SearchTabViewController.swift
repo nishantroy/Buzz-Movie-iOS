@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class SearchTabViewController: UIViewController {
+    
+    //MARK: Properties
 
+    @IBOutlet weak var movieSearchField: UITextField!
+    
+    var url1 = "http://www.omdbapi.com/?t="
+    var url2 = "&y=&plot=short&r=json"
+    var jsonArray:JSON = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +43,15 @@ class SearchTabViewController: UIViewController {
     }
     */
 
+    @IBAction func movieSearch(sender: UIButton) {
+        let movieName = self.movieSearchField.text //get user entry
+        let movieURL = movieName?.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLPathAllowedCharacterSet()) //remove spaces and urlencode
+        let urlPath = url1 + movieURL! + url2 //build url path
+        //get request with Alamofire to oMDB and make JSON with AlamoFire
+        Alamofire.request(.GET, urlPath).responseJSON { response in
+            self.jsonArray = JSON(response.result.value!)
+            print(self.jsonArray)
+        }
+    }
+    
 }

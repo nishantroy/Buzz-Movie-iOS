@@ -1,13 +1,28 @@
 PODS:
+  - Alamofire (3.3.1)
   - Firebase (2.5.1)
+  - SwiftyJSON (2.3.2)
   - Toast-Swift (1.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.3)
   - Firebase (>= 2.5.1)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - Toast-Swift (~> 1.1.0)
 
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
 SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toast-Swift: d11df96d64d449dc63cb330ea871f30b1eca18c1
 
 COCOAPODS: 0.39.0
