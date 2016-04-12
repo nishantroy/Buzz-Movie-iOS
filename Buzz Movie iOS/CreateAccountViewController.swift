@@ -53,7 +53,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                             
                             print("Account created :)")
                             
-                            let userDict = ["Name": name!, "Major": major!]
+                            let userDict = ["Name": name!, "Major": major!, "Email": email!]
                             
                             let uid = authData.uid
                             

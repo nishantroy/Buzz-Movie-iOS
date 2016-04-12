@@ -9,12 +9,18 @@
 import UIKit
 import Foundation
 import Firebase
+import Toast_Swift
+
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
+    
+    var userName = "user"
+    
+    
     
     
     override func viewDidLoad() {
@@ -24,6 +30,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         email.delegate = self
         password.delegate = self
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
     }
     
     
@@ -66,6 +74,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             self.presentViewController(alert, animated: true, completion: nil)
                             
+//                            self.view.makeToastActivity(.Bottom)
+                            
                         case .InvalidPassword:
                             let alert = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .Alert)
                             
@@ -84,14 +94,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             self.presentViewController(alert, animated: true, completion: nil)
                         }
+                        self.view.hideToastActivity()
                     }
                 } else {
+                    self.view.makeToastActivity(.Center)
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
                     
                     print ("Logged in :)")
                     
-                    self.performSegueWithIdentifier("loginSuccessful", sender: nil)
+                    self.view.window!.makeToast("Logged in " + email! + " successfully", duration: 3.0, position: .Bottom)
+                    
+                    self.performSegueWithIdentifier("loggedIn", sender: nil)
                     self.logoutButton.hidden = false
+                    self.view.hideToastActivity()
                 }
             })
         } else { //otherwise, return error and show alert
@@ -102,7 +117,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(action)
             
             self.presentViewController(alert, animated: true, completion: nil)
+            self.view.hideToastActivity()
         }
+        
     }
     
     

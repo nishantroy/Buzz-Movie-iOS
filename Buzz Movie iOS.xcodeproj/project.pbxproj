@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		059653DD49382FA6D678C826 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E48C5623E02985730C0DB76 /* Pods.framework */; };
 		7B0266151CBA543F005B36A2 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0266141CBA543F005B36A2 /* Firebase.framework */; };
 		7B3F85E01CAEEB7A00CEBA36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F85DF1CAEEB7A00CEBA36 /* AppDelegate.swift */; };
 		7B3F85E21CAEEB7A00CEBA36 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3F85E11CAEEB7A00CEBA36 /* MovieViewController.swift */; };
@@ -17,6 +16,7 @@
 		7B67572E1CBAE2E400F4721C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B67572C1CBAE2E400F4721C /* Main.storyboard */; };
 		7BA35C991CBA412600AF26F7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA35C981CBA412600AF26F7 /* LoginViewController.swift */; };
 		7BA35C9B1CBA414100AF26F7 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA35C9A1CBA414100AF26F7 /* CreateAccountViewController.swift */; };
+		7BB1BEE01CBCD74200531061 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1BEDF1CBCD74200531061 /* EditProfileViewController.swift */; };
 		7BC0DBD41CBA33A1005A8070 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0DBD31CBA33A1005A8070 /* libicucore.tbd */; };
 		7BC0DBD61CBA33A7005A8070 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0DBD51CBA33A7005A8070 /* libc++.tbd */; };
 		7BC0DBD81CBA33AC005A8070 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC0DBD71CBA33AC005A8070 /* CFNetwork.framework */; };
@@ -28,6 +28,10 @@
 		7BC1AD1F1CB2029900C616CD /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1AD1E1CB2029900C616CD /* MovieTableViewCell.swift */; };
 		7BC1AD221CB2086400C616CD /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC1AD201CB2086400C616CD /* MovieTableViewController.swift */; };
 		7BC1AD231CB2086400C616CD /* MovieTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BC1AD211CB2086400C616CD /* MovieTableViewController.xib */; };
+		7BC345491CBC6DCA0007C33B /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC345481CBC6DCA0007C33B /* SearchTabViewController.swift */; };
+		7BC3454B1CBC6DE40007C33B /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3454A1CBC6DE40007C33B /* ProfileTabViewController.swift */; };
+		7BC3454D1CBC6DF10007C33B /* RatingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3454C1CBC6DF10007C33B /* RatingsTabViewController.swift */; };
+		E6899D52343ACDF61443A38E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E48C5623E02985730C0DB76 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D7964E1D61DAFEB431AC424 /* Pods_Buzz_Movie_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Buzz_Movie_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E48C5623E02985730C0DB76 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D165111579AD29E0ADC441 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7B0266141CBA543F005B36A2 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		7B67572D1CBAE2E400F4721C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BA35C981CBA412600AF26F7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7BA35C9A1CBA414100AF26F7 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		7BB1BEDF1CBCD74200531061 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		7BC0DBD31CBA33A1005A8070 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		7BC0DBD51CBA33A7005A8070 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7BC0DBD71CBA33AC005A8070 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -76,6 +82,9 @@
 		7BC1AD1E1CB2029900C616CD /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		7BC1AD201CB2086400C616CD /* MovieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		7BC1AD211CB2086400C616CD /* MovieTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewController.xib; sourceTree = "<group>"; };
+		7BC345481CBC6DCA0007C33B /* SearchTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
+		7BC3454A1CBC6DE40007C33B /* ProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
+		7BC3454C1CBC6DF10007C33B /* RatingsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsTabViewController.swift; sourceTree = "<group>"; };
 		ECA40D8CA56C77180D57B6E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +99,7 @@
 				7B0266151CBA543F005B36A2 /* Firebase.framework in Frameworks */,
 				7BC0DBD61CBA33A7005A8070 /* libc++.tbd in Frameworks */,
 				7BC0DBD41CBA33A1005A8070 /* libicucore.tbd in Frameworks */,
-				059653DD49382FA6D678C826 /* Pods.framework in Frameworks */,
+				E6899D52343ACDF61443A38E /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +158,10 @@
 				7B3F85E11CAEEB7A00CEBA36 /* MovieViewController.swift */,
 				7BA35C981CBA412600AF26F7 /* LoginViewController.swift */,
 				7BA35C9A1CBA414100AF26F7 /* CreateAccountViewController.swift */,
+				7BC345481CBC6DCA0007C33B /* SearchTabViewController.swift */,
+				7BC3454A1CBC6DE40007C33B /* ProfileTabViewController.swift */,
+				7BC3454C1CBC6DF10007C33B /* RatingsTabViewController.swift */,
+				7BB1BEDF1CBCD74200531061 /* EditProfileViewController.swift */,
 				7BC0DBDD1CBA3929005A8070 /* BaseService.swift */,
 				7BC1AD1E1CB2029900C616CD /* MovieTableViewCell.swift */,
 				7BC1AD1C1CB1E9D400C616CD /* Movie.swift */,
@@ -190,6 +203,7 @@
 				7BC0DBD51CBA33A7005A8070 /* libc++.tbd */,
 				7BC0DBD31CBA33A1005A8070 /* libicucore.tbd */,
 				4E48C5623E02985730C0DB76 /* Pods.framework */,
+				3D7964E1D61DAFEB431AC424 /* Pods_Buzz_Movie_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -377,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BB1BEE01CBCD74200531061 /* EditProfileViewController.swift in Sources */,
 				7B3F85E21CAEEB7A00CEBA36 /* MovieViewController.swift in Sources */,
 				7BC1AD1B1CB1C3B900C616CD /* RatingControl.swift in Sources */,
 				7BC1AD1D1CB1E9D400C616CD /* Movie.swift in Sources */,
@@ -384,8 +399,11 @@
 				7BA35C991CBA412600AF26F7 /* LoginViewController.swift in Sources */,
 				7BC0DBDE1CBA3929005A8070 /* BaseService.swift in Sources */,
 				7BA35C9B1CBA414100AF26F7 /* CreateAccountViewController.swift in Sources */,
+				7BC3454B1CBC6DE40007C33B /* ProfileTabViewController.swift in Sources */,
 				7BC1AD221CB2086400C616CD /* MovieTableViewController.swift in Sources */,
 				7BC1AD1F1CB2029900C616CD /* MovieTableViewCell.swift in Sources */,
+				7BC345491CBC6DCA0007C33B /* SearchTabViewController.swift in Sources */,
+				7BC3454D1CBC6DF10007C33B /* RatingsTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -509,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

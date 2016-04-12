@@ -20,8 +20,6 @@ class MovieViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     var movie:Movie?
     
-    //var database = Firebase(url: "https://buzzmovieios.firebaseio.com/")
-    
 
     
     

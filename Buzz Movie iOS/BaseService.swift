@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Firebase
 
+
+
 //MARK: Properties
 
 let BASE_REF = Firebase(url: "https://buzzmovieios.firebaseio.com/")
@@ -22,6 +24,17 @@ var currentUser: Firebase
     
     let currUser = Firebase(url: "\(BASE_REF)").childByAppendingPath("users").childByAppendingPath(userId)
     
+    
+
+    
     return currUser!
 }
+
+
+var currentUserName = currentUser.childByAppendingPath("Name")
+
+//Firebase.defaultConfig().persistenceEnabled = true
+
+
+
 
