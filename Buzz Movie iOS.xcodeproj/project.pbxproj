@@ -31,6 +31,7 @@
 		7BC345491CBC6DCA0007C33B /* SearchTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC345481CBC6DCA0007C33B /* SearchTabViewController.swift */; };
 		7BC3454B1CBC6DE40007C33B /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3454A1CBC6DE40007C33B /* ProfileTabViewController.swift */; };
 		7BC3454D1CBC6DF10007C33B /* RatingsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3454C1CBC6DF10007C33B /* RatingsTabViewController.swift */; };
+		7BDAB1EF1CBDED2300B6A6CF /* DisplayMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDAB1EE1CBDED2300B6A6CF /* DisplayMovieViewController.swift */; };
 		E6899D52343ACDF61443A38E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E48C5623E02985730C0DB76 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		7BC345481CBC6DCA0007C33B /* SearchTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabViewController.swift; sourceTree = "<group>"; };
 		7BC3454A1CBC6DE40007C33B /* ProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
 		7BC3454C1CBC6DF10007C33B /* RatingsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingsTabViewController.swift; sourceTree = "<group>"; };
+		7BDAB1EE1CBDED2300B6A6CF /* DisplayMovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMovieViewController.swift; sourceTree = "<group>"; };
 		ECA40D8CA56C77180D57B6E1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				7BC0DBDD1CBA3929005A8070 /* BaseService.swift */,
 				7BC1AD1E1CB2029900C616CD /* MovieTableViewCell.swift */,
 				7BC1AD1C1CB1E9D400C616CD /* Movie.swift */,
+				7BDAB1EE1CBDED2300B6A6CF /* DisplayMovieViewController.swift */,
 				7B3F85E61CAEEB7A00CEBA36 /* Assets.xcassets */,
 				7BC1AD201CB2086400C616CD /* MovieTableViewController.swift */,
 				7B67572C1CBAE2E400F4721C /* Main.storyboard */,
@@ -403,6 +406,7 @@
 				7BC1AD221CB2086400C616CD /* MovieTableViewController.swift in Sources */,
 				7BC1AD1F1CB2029900C616CD /* MovieTableViewCell.swift in Sources */,
 				7BC345491CBC6DCA0007C33B /* SearchTabViewController.swift in Sources */,
+				7BDAB1EF1CBDED2300B6A6CF /* DisplayMovieViewController.swift in Sources */,
 				7BC3454D1CBC6DF10007C33B /* RatingsTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

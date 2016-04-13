@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Properties
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var logoutButton: UIButton!
+    
     
     var userName = "user"
     
@@ -26,11 +26,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logoutButton.hidden = true
+//        self.logoutButton.hidden = true
         
         email.delegate = self
         password.delegate = self
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.hidesBackButton = true
 
     }
     
@@ -38,10 +38,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil  && currentUser.authData != nil
-        {
-            self.logoutButton.hidden = false
-        }
+//        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil  && currentUser.authData != nil
+//        {
+//            
+//        }
+        
     }
     
     
@@ -105,7 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.view.window!.makeToast("Logged in " + email! + " successfully", duration: 3.0, position: .Bottom)
                     
                     self.performSegueWithIdentifier("loggedIn", sender: nil)
-                    self.logoutButton.hidden = false
+//                    self.logoutButton.hidden = false
                     self.view.hideToastActivity()
                 }
             })
@@ -122,13 +123,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    
-    @IBAction func logoutAction(sender: UIButton) {
-        currentUser.unauth()
-        
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-        self.logoutButton.hidden = true
-    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)

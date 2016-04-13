@@ -10,16 +10,18 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
     
-    var userName = ""
-    var userMajor = ""
-
+    var userName = String()
+    var userMajor = String()
+    var userEmail = String()
+    
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userMajorTextField: UITextField!
+    @IBOutlet weak var userEmailTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -27,39 +29,61 @@ class EditProfileViewController: UIViewController {
         //Do something
         loadUserData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     //MARK: Actions
     
     @IBAction func saveUserChanges(sender: AnyObject) {
-        let userData = ["Name": userNameTextField.text!, "Major": userMajorTextField.text!]
-        currentUser.setValue(userData)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        if (userNameTextField.text! == "" || userMajorTextField.text! == "" || userEmailTextField.text! == "") {
+            self.view.window!.makeToast("Name, Major or Email cannot be empty! Please try again", duration: 1.0, position: .Center)
+        } else {
+            let userData = ["Name": userNameTextField.text!, "Major": userMajorTextField.text!, "Email": userEmailTextField.text!]
+            currentUser.setValue(userData)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
     @IBAction func cancelChanges(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBAction func logoutUser(sender: UIButton) {
+        BASE_REF.unauth()
+        currentUser.unauth()
+        //add segue to loginView
+        self.performSegueWithIdentifier("logoutUser", sender: nil)
+    }
     
     func loadUserData() {
         self.userNameTextField.text = self.userName
         self.userMajorTextField.text = self.userMajor
+        self.userEmailTextField.text = self.userEmail
     }
     
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
 }

@@ -15,6 +15,7 @@ class ProfileTabViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var majorLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
 
     var userName = "userName"
     
@@ -62,6 +63,8 @@ class ProfileTabViewController: UIViewController {
             if let targetController = destinationViewController?.topViewController as? EditProfileViewController {
                 targetController.userName = self.nameLabel.text!
                 targetController.userMajor = self.majorLabel.text!
+                targetController.userEmail = self.emailLabel.text!
+                
             }
         }
     }
@@ -73,6 +76,8 @@ class ProfileTabViewController: UIViewController {
             if let name = snap.value["Name"] as? String{ self.nameLabel.text = name}
             if let major = snap.value["Major"] as?
                 String {self.majorLabel.text = major}
+            if let email = snap.value["Email"] as?
+                String {self.emailLabel.text = email}
         }
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
