@@ -13,14 +13,16 @@ class DisplayMovieViewController: UIViewController {
     //MARK: Properties
     
     var plot = String()
-    var rating = String()
+    var imdbRating = String()
     var name = String()
     var imagePath = String()
+    var userRating = Int()
     
 
     @IBOutlet weak var movieRating: UILabel!
     @IBOutlet weak var moviePlot: UITextView!
     @IBOutlet weak var moviePicture: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     var amountOfLinesToBeShown:CGFloat = 5
     var maxHeight:CGFloat? {
@@ -37,7 +39,7 @@ class DisplayMovieViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.movieRating.text = rating
+        self.movieRating.text = imdbRating
         self.moviePlot.text = plot
         self.navigationItem.title = name
         moviePlot.sizeThatFits(CGSizeMake(moviePlot.frame.size.width, maxHeight!))
@@ -68,6 +70,9 @@ class DisplayMovieViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func backToSearch(sender: UIBarButtonItem) {
+        self.userRating = ratingControl.rating
+        //TODO: Add child for every user in Firebase tracking which movies they've rated and how much they rated it, if rating > 0 only.
+        self.view.window!.makeToast("You rated this movie as a \(self.userRating)", duration: 1, position: .Bottom)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

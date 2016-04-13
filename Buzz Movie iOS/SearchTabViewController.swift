@@ -53,7 +53,7 @@ class SearchTabViewController: UIViewController {
             let destinationViewController = segue.destinationViewController as? UINavigationController
             if let targetController = destinationViewController?.topViewController as? DisplayMovieViewController {
                 targetController.plot = self.moviePlot
-                targetController.rating = self.movieRating
+                targetController.imdbRating = self.movieRating
                 targetController.name = self.movieName
                 targetController.imagePath = self.moviePicturePath
                 

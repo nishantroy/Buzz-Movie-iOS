@@ -100,10 +100,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     self.view.makeToastActivity(.Center)
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    currentUserEmail = (authData.providerData["email"] as? String)!
                     
                     print ("Logged in :)")
                     
-                    self.view.window!.makeToast("Logged in " + email! + " successfully", duration: 3.0, position: .Bottom)
+                    self.view.window!.makeToast("Logged in " + currentUserEmail + " successfully", duration: 3.0, position: .Bottom)
                     
                     self.performSegueWithIdentifier("loggedIn", sender: nil)
 //                    self.logoutButton.hidden = false

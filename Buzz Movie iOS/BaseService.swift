@@ -33,6 +33,8 @@ var currentUser: Firebase
 
 var currentUserName = currentUser.childByAppendingPath("Name")
 
+var currentUserEmail = String()
+
 //Firebase.defaultConfig().persistenceEnabled = true
 
 

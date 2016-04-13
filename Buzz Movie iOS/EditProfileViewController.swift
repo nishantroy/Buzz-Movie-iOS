@@ -13,14 +13,22 @@ class EditProfileViewController: UIViewController {
     var userName = String()
     var userMajor = String()
     var userEmail = String()
+    var emailChanged = false
     
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userMajorTextField: UITextField!
     @IBOutlet weak var userEmailTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.userPasswordTextField.hidden = true
+        self.passwordLabel.hidden = true
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -52,23 +60,36 @@ class EditProfileViewController: UIViewController {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         if (userNameTextField.text! == "" || userMajorTextField.text! == "" || userEmailTextField.text! == "") {
             self.view.window!.makeToast("Name, Major or Email cannot be empty! Please try again", duration: 1.0, position: .Center)
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         } else {
             let userData = ["Name": userNameTextField.text!, "Major": userMajorTextField.text!, "Email": userEmailTextField.text!]
-            currentUser.setValue(userData)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if (emailChanged) {
+                BASE_REF.changeEmailForUser(currentUserEmail, password: userPasswordTextField.text!, toNewEmail: userEmailTextField.text!, withCompletionBlock: { error in
+                    if error != nil {
+                        self.view.window!.makeToast(error.localizedDescription, duration: 1.5, position: .Center)
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                    } else {
+                        currentUser.setValue(userData)
+                        self.view.window!.makeToast("Profile updated", duration: 1.0, position: .Bottom)
+                        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    }
+                    
+                })
+            } else {
+                currentUser.setValue(userData)
+                self.view.window!.makeToast("Profile updated", duration: 1.0, position: .Bottom)
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
     }
     
     @IBAction func cancelChanges(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func logoutUser(sender: UIButton) {
-        BASE_REF.unauth()
-        currentUser.unauth()
-        //add segue to loginView
-        self.performSegueWithIdentifier("logoutUser", sender: nil)
-    }
+
     
     func loadUserData() {
         self.userNameTextField.text = self.userName
@@ -85,5 +106,17 @@ class EditProfileViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    @IBAction func emailChanged(sender: UITextField) {
+        self.userPasswordTextField.hidden = false
+        self.passwordLabel.hidden = false
+        self.emailChanged = true
+    }
+    
+    @IBAction func logoutUser(sender: UIButton) {
+        BASE_REF.unauth()
+        currentUser.unauth()
+        //add segue to loginView
+        self.performSegueWithIdentifier("logoutUser", sender: nil)
+    }
     
 }
