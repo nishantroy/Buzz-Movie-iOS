@@ -77,7 +77,7 @@ class DisplayMovieViewController: UIViewController {
         //TODO: Add child for every user in Firebase tracking which movies they've rated and how much they rated it, if rating > 0 only.
         
         if (self.userRating > 0) {
-            let movie = ["User Rating": self.userRating, "IMDB Rating": self.imdbRating, "Image": self.imagePath]
+            let movie = ["User Rating": self.userRating, "Plot": self.plot, "IMDB Rating": self.imdbRating, "Image": self.imagePath]
             currentUserMovies.updateChildValues([self.name: movie])
             self.view.window!.makeToast("You rated this movie as a \(self.userRating)", duration: 1, position: .Bottom)
         }

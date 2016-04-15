@@ -16,7 +16,7 @@ class ProfileTabViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
-
+    
     var userName = "userName"
     
     
@@ -25,33 +25,34 @@ class ProfileTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        nameLabel.text = BASE_REF.authData
-       
         
-//        BASE_REF.childByAppendingPath("users").queryOrderedByChild("")
-//        if (userName != nil) {
-//            nameLabel.text = userName
-//        }
-       
+        // Do any additional setup after loading the view.
+        //        nameLabel.text = BASE_REF.authData
+        
+        
+        //        BASE_REF.childByAppendingPath("users").queryOrderedByChild("")
+        //        if (userName != nil) {
+        //            nameLabel.text = userName
+        //        }
+        
         
         
     }
     
     override func viewDidAppear(animated: Bool) {
         loadUserData()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-*/
+     // MARK: - Navigation
+     */
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -68,7 +69,18 @@ class ProfileTabViewController: UIViewController {
             }
         }
     }
- 
+    
+    //        BASE_REF.unauth()
+    //        currentUser.unauth()
+    //        //add segue to loginView
+    //        self.performSegueWithIdentifier("logoutUser", sender: nil)
+    
+    @IBAction func logoutUser(sender: AnyObject) {
+        BASE_REF.unauth()
+        currentUser.unauth()
+        //add segue to loginView
+        self.performSegueWithIdentifier("logoutUser", sender: nil)
+    }
     
     func loadUserData() {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -77,7 +89,10 @@ class ProfileTabViewController: UIViewController {
             if let major = snap.value["Major"] as?
                 String {self.majorLabel.text = major}
             if let email = snap.value["Email"] as?
-                String {self.emailLabel.text = email}
+                String {
+                self.emailLabel.text = email
+                currentUserEmail = email
+            }
         }
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -90,5 +105,5 @@ class ProfileTabViewController: UIViewController {
         performSegueWithIdentifier("editProfileSegue", sender: nil)
     }
     
-
+    
 }

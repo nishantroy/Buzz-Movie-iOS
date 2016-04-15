@@ -56,13 +56,15 @@ class RatingsTabViewController: UITableViewController {
                     let name = key
                     let userrating = subJson["User Rating"].int!
                     let imagePath = subJson["Image"].string!
+                    let plot = subJson["Plot"].string! ?? "No Plot Found!"
+                    let imdbRating = subJson["IMDB Rating"].string!
                     var image = UIImage()
                     if let url = NSURL(string: imagePath) {
                         if let data = NSData(contentsOfURL: url) {
                             image = UIImage(data: data)!
                         }
                     }
-                    let movie = Movie(name: name, rating: userrating, image: image)
+                    let movie = Movie(name: name, rating: userrating, image: image, plot: plot, imdbRating: imdbRating)
                     movieArr.append(movie!)
                 }
                 self.myArray = movieArr

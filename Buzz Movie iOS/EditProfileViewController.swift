@@ -27,6 +27,7 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         self.userPasswordTextField.hidden = true
         self.passwordLabel.hidden = true
+        print(currentUserEmail)
         
         
         
@@ -69,7 +70,7 @@ class EditProfileViewController: UIViewController {
                         self.view.window!.makeToast(error.localizedDescription, duration: 1.5, position: .Center)
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                     } else {
-                        currentUser.setValue(userData)
+                        currentUser.updateChildValues(userData)
                         self.view.window!.makeToast("Profile updated", duration: 1.0, position: .Bottom)
                         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                         self.dismissViewControllerAnimated(true, completion: nil)
@@ -77,15 +78,14 @@ class EditProfileViewController: UIViewController {
                     
                 })
             } else {
-                currentUser.setValue(userData)
+                currentUser.updateChildValues(userData)
                 self.view.window!.makeToast("Profile updated", duration: 1.0, position: .Bottom)
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
-            
         }
+        
     }
-    
     @IBAction func cancelChanges(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -110,13 +110,6 @@ class EditProfileViewController: UIViewController {
         self.userPasswordTextField.hidden = false
         self.passwordLabel.hidden = false
         self.emailChanged = true
-    }
-    
-    @IBAction func logoutUser(sender: UIButton) {
-        BASE_REF.unauth()
-        currentUser.unauth()
-        //add segue to loginView
-        self.performSegueWithIdentifier("logoutUser", sender: nil)
     }
     
 }
