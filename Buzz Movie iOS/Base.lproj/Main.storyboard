@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9jT-lE-Mh3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iTp-7Q-lW3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -364,21 +365,76 @@
         <!--User's Ratings-->
         <scene sceneID="JYc-pp-3me">
             <objects>
-                <viewController id="zay-3v-dqa" customClass="RatingsTabViewController" customModule="Buzz_Movie_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9se-XI-hgQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="6lD-de-fLy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BJm-Qq-fJb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="User's Ratings" id="R3z-nH-9Az"/>
-                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P8-AN-Uqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="zay-3v-dqa" customClass="RatingsTabViewController" customModule="Buzz_Movie_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Whc-jc-Fm8">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="90" id="NP8-hj-P2z" customClass="MealTableViewCell" customModule="Buzz_Movie_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NP8-hj-P2z" id="J9S-Vb-tfc">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="88R-QK-4YA">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJi-d6-sIz">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="8" width="295" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbY-uQ-iO4" customClass="TableRatingControl" customModule="Buzz_Movie_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="33" width="295" height="52"/>
+                                            </variation>
+                                        </view>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="88R-QK-4YA"/>
+                                            <exclude reference="jJi-d6-sIz"/>
+                                            <exclude reference="jbY-uQ-iO4"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="88R-QK-4YA"/>
+                                            <include reference="jJi-d6-sIz"/>
+                                            <include reference="jbY-uQ-iO4"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="movieImage" destination="88R-QK-4YA" id="rCS-S9-fYH"/>
+                                    <outlet property="nameLabel" destination="jJi-d6-sIz" id="JdI-XQ-xK9"/>
+                                    <outlet property="ratingControl" destination="jbY-uQ-iO4" id="tTn-Kp-jxL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zay-3v-dqa" id="K27-7h-m6d"/>
+                            <outlet property="delegate" destination="zay-3v-dqa" id="pfT-7V-6vd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="User's Ratings" id="R3z-nH-9Az"/>
+                    <connections>
+                        <outlet property="tableView" destination="Whc-jc-Fm8" id="FPJ-ze-wG3"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="141" y="3118"/>
+            <point key="canvasLocation" x="141" y="3117.75"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="x8e-G0-Bnb">
@@ -471,15 +527,15 @@
                                 <exclude reference="1Yw-Ol-mM3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="aCM-pV-HEb"/>
-                                <exclude reference="kNR-a8-fk3"/>
+                                <exclude reference="5lY-uD-UbU"/>
+                                <exclude reference="e5E-RH-XGP"/>
+                                <exclude reference="pwb-mz-Mzw"/>
                                 <exclude reference="1ro-nH-Cp8"/>
                                 <exclude reference="1tY-4A-VlM"/>
                                 <exclude reference="X1e-qi-vav"/>
                                 <exclude reference="fif-aM-qpT"/>
-                                <exclude reference="5lY-uD-UbU"/>
-                                <exclude reference="e5E-RH-XGP"/>
-                                <exclude reference="pwb-mz-Mzw"/>
+                                <exclude reference="aCM-pV-HEb"/>
+                                <exclude reference="kNR-a8-fk3"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -488,15 +544,15 @@
                                 <include reference="1Yw-Ol-mM3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="aCM-pV-HEb"/>
-                                <include reference="kNR-a8-fk3"/>
+                                <include reference="5lY-uD-UbU"/>
+                                <include reference="e5E-RH-XGP"/>
+                                <include reference="pwb-mz-Mzw"/>
                                 <include reference="1ro-nH-Cp8"/>
                                 <include reference="1tY-4A-VlM"/>
                                 <include reference="X1e-qi-vav"/>
                                 <include reference="fif-aM-qpT"/>
-                                <include reference="5lY-uD-UbU"/>
-                                <include reference="e5E-RH-XGP"/>
-                                <include reference="pwb-mz-Mzw"/>
+                                <include reference="aCM-pV-HEb"/>
+                                <include reference="kNR-a8-fk3"/>
                             </mask>
                         </variation>
                     </view>
@@ -682,29 +738,29 @@
                                 <exclude reference="Nf3-WL-fcX"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6H7-dw-k3u"/>
-                                <exclude reference="Hbe-Zk-FkP"/>
-                                <exclude reference="Xip-HN-GXT"/>
-                                <exclude reference="pdE-Z5-zUI"/>
-                                <exclude reference="VtX-15-efK"/>
-                                <exclude reference="kE0-3m-x7F"/>
-                                <exclude reference="noB-vn-TfX"/>
-                                <exclude reference="qdP-y9-uy8"/>
+                                <exclude reference="0yi-W5-YVb"/>
+                                <exclude reference="71w-kJ-O3S"/>
                                 <exclude reference="77x-Pa-hbF"/>
                                 <exclude reference="9JB-qX-esh"/>
                                 <exclude reference="W0w-OF-RtR"/>
                                 <exclude reference="bLD-l2-Y7h"/>
-                                <exclude reference="gWf-qf-3wZ"/>
-                                <exclude reference="sa0-X0-vdI"/>
-                                <exclude reference="tsr-on-MdY"/>
                                 <exclude reference="1V9-Ue-V8k"/>
                                 <exclude reference="JBm-aI-KtS"/>
                                 <exclude reference="WIE-F2-5Wd"/>
-                                <exclude reference="0yi-W5-YVb"/>
-                                <exclude reference="71w-kJ-O3S"/>
+                                <exclude reference="LBG-Fo-8Nk"/>
+                                <exclude reference="VtX-15-efK"/>
+                                <exclude reference="kE0-3m-x7F"/>
+                                <exclude reference="noB-vn-TfX"/>
+                                <exclude reference="qdP-y9-uy8"/>
                                 <exclude reference="I7n-f7-SDO"/>
                                 <exclude reference="l3U-x9-kmr"/>
-                                <exclude reference="LBG-Fo-8Nk"/>
+                                <exclude reference="gWf-qf-3wZ"/>
+                                <exclude reference="sa0-X0-vdI"/>
+                                <exclude reference="tsr-on-MdY"/>
+                                <exclude reference="6H7-dw-k3u"/>
+                                <exclude reference="Hbe-Zk-FkP"/>
+                                <exclude reference="Xip-HN-GXT"/>
+                                <exclude reference="pdE-Z5-zUI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -720,29 +776,29 @@
                                 <include reference="Nf3-WL-fcX"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6H7-dw-k3u"/>
-                                <include reference="Hbe-Zk-FkP"/>
-                                <include reference="Xip-HN-GXT"/>
-                                <include reference="pdE-Z5-zUI"/>
-                                <include reference="VtX-15-efK"/>
-                                <include reference="kE0-3m-x7F"/>
-                                <include reference="noB-vn-TfX"/>
-                                <include reference="qdP-y9-uy8"/>
+                                <include reference="0yi-W5-YVb"/>
+                                <include reference="71w-kJ-O3S"/>
                                 <include reference="77x-Pa-hbF"/>
                                 <include reference="9JB-qX-esh"/>
                                 <include reference="W0w-OF-RtR"/>
                                 <include reference="bLD-l2-Y7h"/>
-                                <include reference="gWf-qf-3wZ"/>
-                                <include reference="sa0-X0-vdI"/>
-                                <include reference="tsr-on-MdY"/>
                                 <include reference="1V9-Ue-V8k"/>
                                 <include reference="JBm-aI-KtS"/>
                                 <include reference="WIE-F2-5Wd"/>
-                                <include reference="0yi-W5-YVb"/>
-                                <include reference="71w-kJ-O3S"/>
+                                <include reference="LBG-Fo-8Nk"/>
+                                <include reference="VtX-15-efK"/>
+                                <include reference="kE0-3m-x7F"/>
+                                <include reference="noB-vn-TfX"/>
+                                <include reference="qdP-y9-uy8"/>
                                 <include reference="I7n-f7-SDO"/>
                                 <include reference="l3U-x9-kmr"/>
-                                <include reference="LBG-Fo-8Nk"/>
+                                <include reference="gWf-qf-3wZ"/>
+                                <include reference="sa0-X0-vdI"/>
+                                <include reference="tsr-on-MdY"/>
+                                <include reference="6H7-dw-k3u"/>
+                                <include reference="Hbe-Zk-FkP"/>
+                                <include reference="Xip-HN-GXT"/>
+                                <include reference="pdE-Z5-zUI"/>
                             </mask>
                         </variation>
                     </view>
@@ -864,6 +920,7 @@
                         <viewControllerLayoutGuide type="bottom" id="W6q-bc-qEk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xiS-Kg-tl3">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwW-lu-uNV">
@@ -1003,20 +1060,20 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="A7d-Ij-53x"/>
-                                                <exclude reference="Mm4-dm-FYG"/>
-                                                <exclude reference="agH-kO-Xr6"/>
-                                                <exclude reference="nQK-RN-yJv"/>
+                                                <exclude reference="CVW-mY-jVY"/>
+                                                <exclude reference="DCp-wK-4kz"/>
+                                                <exclude reference="gkV-LG-qgz"/>
                                                 <exclude reference="ece-NT-BcR"/>
-                                                <exclude reference="Wmv-mM-ann"/>
                                                 <exclude reference="RyF-CE-lWA"/>
                                                 <exclude reference="XV7-pm-uma"/>
                                                 <exclude reference="Z9c-vf-nuq"/>
                                                 <exclude reference="Zuo-Hx-0WJ"/>
                                                 <exclude reference="qNK-8F-qax"/>
                                                 <exclude reference="sp8-D6-oms"/>
-                                                <exclude reference="CVW-mY-jVY"/>
-                                                <exclude reference="DCp-wK-4kz"/>
-                                                <exclude reference="gkV-LG-qgz"/>
+                                                <exclude reference="Mm4-dm-FYG"/>
+                                                <exclude reference="agH-kO-Xr6"/>
+                                                <exclude reference="nQK-RN-yJv"/>
+                                                <exclude reference="Wmv-mM-ann"/>
                                                 <exclude reference="Ga7-oC-ZUd"/>
                                                 <exclude reference="QnM-zO-tZQ"/>
                                                 <exclude reference="lyO-Vr-rCe"/>
@@ -1035,20 +1092,20 @@
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="A7d-Ij-53x"/>
-                                                <include reference="Mm4-dm-FYG"/>
-                                                <include reference="agH-kO-Xr6"/>
-                                                <include reference="nQK-RN-yJv"/>
+                                                <include reference="CVW-mY-jVY"/>
+                                                <include reference="DCp-wK-4kz"/>
+                                                <include reference="gkV-LG-qgz"/>
                                                 <include reference="ece-NT-BcR"/>
-                                                <include reference="Wmv-mM-ann"/>
                                                 <include reference="RyF-CE-lWA"/>
                                                 <include reference="XV7-pm-uma"/>
                                                 <include reference="Z9c-vf-nuq"/>
                                                 <include reference="Zuo-Hx-0WJ"/>
                                                 <include reference="qNK-8F-qax"/>
                                                 <include reference="sp8-D6-oms"/>
-                                                <include reference="CVW-mY-jVY"/>
-                                                <include reference="DCp-wK-4kz"/>
-                                                <include reference="gkV-LG-qgz"/>
+                                                <include reference="Mm4-dm-FYG"/>
+                                                <include reference="agH-kO-Xr6"/>
+                                                <include reference="nQK-RN-yJv"/>
+                                                <include reference="Wmv-mM-ann"/>
                                                 <include reference="Ga7-oC-ZUd"/>
                                                 <include reference="QnM-zO-tZQ"/>
                                                 <include reference="lyO-Vr-rCe"/>
@@ -1224,6 +1281,7 @@
         <!--Ratings-->
         <scene sceneID="zZA-AR-0K7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPS-lR-uxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dsf-dB-CEi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Ratings" image="ratingUnfilled" selectedImage="ratingFilled" id="NPt-7C-TYR"/>
                     <toolbarItems/>
@@ -1236,7 +1294,6 @@
                         <segue destination="zay-3v-dqa" kind="relationship" relationship="rootViewController" id="pB9-P6-Wxz"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yPS-lR-uxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="3118"/>
         </scene>

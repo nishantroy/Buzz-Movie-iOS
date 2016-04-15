@@ -2,18 +2,21 @@
 //  MealTableViewCell.swift
 //  Buzz Movie iOS
 //
-//  Created by localadmin on 4/3/16.
+//  Created by localadmin on 4/14/16.
 //  Copyright © 2016 2b||!2b. All rights reserved.
 //
 
 import UIKit
 
-class MovieTableViewCell: UITableViewCell {
+class MealTableViewCell: UITableViewCell {
     
     //MARK: Properties
+    
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var ratingControl: RatingControl!
+    
+    @IBOutlet weak var ratingControl: TableRatingControl!
+    @IBOutlet weak var movieImage: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
