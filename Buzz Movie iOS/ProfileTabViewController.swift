@@ -70,10 +70,6 @@ class ProfileTabViewController: UIViewController {
         }
     }
     
-    //        BASE_REF.unauth()
-    //        currentUser.unauth()
-    //        //add segue to loginView
-    //        self.performSegueWithIdentifier("logoutUser", sender: nil)
     
     @IBAction func logoutUser(sender: AnyObject) {
         BASE_REF.unauth()

@@ -26,22 +26,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.logoutButton.hidden = true
+        //        self.logoutButton.hidden = true
         
         email.delegate = self
         password.delegate = self
         self.navigationItem.hidesBackButton = true
-
+        
     }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil  && currentUser.authData != nil
-//        {
-//            
-//        }
+        //        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil  && currentUser.authData != nil
+        //        {
+        //
+        //        }
         
     }
     
@@ -75,7 +75,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             self.presentViewController(alert, animated: true, completion: nil)
                             
-//                            self.view.makeToastActivity(.Bottom)
+                            //                            self.view.makeToastActivity(.Bottom)
                             
                         case .InvalidPassword:
                             let alert = UIAlertController(title: "Error", message: "Incorrect password", preferredStyle: .Alert)
@@ -107,7 +107,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.view.window!.makeToast("Logged in " + currentUserEmail + " successfully", duration: 3.0, position: .Bottom)
                     
                     self.performSegueWithIdentifier("loggedIn", sender: nil)
-//                    self.logoutButton.hidden = false
+                    //                    self.logoutButton.hidden = false
                     self.view.hideToastActivity()
                 }
             })

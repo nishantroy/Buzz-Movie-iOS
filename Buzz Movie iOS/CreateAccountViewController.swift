@@ -11,7 +11,7 @@ import Foundation
 import Firebase
 
 class CreateAccountViewController: UIViewController, UITextFieldDelegate {
-
+    
     //MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -42,10 +42,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         
         if (email != "" && password != "" && name != "" && major != "") {
             
-    
+            
             
             BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, result) -> Void in
-        
+                
                 if (error == nil) {
                     BASE_REF.authUser(email, password: password, withCompletionBlock: { (error, authData) -> Void in
                         if (error == nil) {
@@ -65,7 +65,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                             print(error)
                         }
                     })
-            
+                    
                 } else {
                     if let errorCode = FAuthenticationError(rawValue: error.code) {
                         switch (errorCode) {

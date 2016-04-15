@@ -20,7 +20,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
-
+    
     
     
     override func viewDidLoad() {
@@ -89,7 +89,7 @@ class EditProfileViewController: UIViewController {
     @IBAction func cancelChanges(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     
     func loadUserData() {
         self.userNameTextField.text = self.userName

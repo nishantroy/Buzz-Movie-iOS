@@ -25,7 +25,7 @@ var currentUser: Firebase
     let currUser = Firebase(url: "\(BASE_REF)").childByAppendingPath("users").childByAppendingPath(userId)
     
     
-
+    
     
     return currUser!
 }

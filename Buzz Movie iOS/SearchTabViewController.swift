@@ -62,18 +62,6 @@ class SearchTabViewController: UIViewController {
         
     }
     
-    /*
-     print("Preparing")
-     if (segue.identifier == "editProfileSegue")
-     {
-     let destinationViewController = segue.destinationViewController as? UINavigationController
-     if let targetController = destinationViewController?.topViewController as? EditProfileViewController {
-     targetController.userName = self.nameLabel.text!
-     targetController.userMajor = self.majorLabel.text!
-     }
-     }
- 
-     */
     
     
     @IBAction func movieSearch(sender: UIButton) {

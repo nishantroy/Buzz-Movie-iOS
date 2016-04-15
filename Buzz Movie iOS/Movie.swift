@@ -16,9 +16,9 @@ class Movie : NSObject{
     var image: UIImage?
     var plot: String
     var imdbRating: String
-
-
-
+    
+    
+    
     init?(name: String, rating: Int, image: UIImage?, plot: String, imdbRating: String) {
         self.name = name
         self.rating = rating
@@ -50,18 +50,18 @@ class Movie : NSObject{
     
     //MARK: NSCoding
     
-//    func encodeWithCoder(aCoder: NSCoder) {
-//        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
-//        aCoder.encodeObject(image, forKey: PropertyKey.imageKey)
-//        aCoder.encodeObject(rating, forKey: PropertyKey.ratingKey)
-//    }
-//    
-//    required convenience init?(coder aDecoder: NSCoder) {
-//        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
-//        let image = aDecoder.decodeObjectForKey(PropertyKey.imageKey) as? UIImage
-//        let rating = aDecoder.decodeObjectForKey(PropertyKey.ratingKey) as! Int
-//        self.init(name: name, rating: rating, image: image)
-//    }
+    //    func encodeWithCoder(aCoder: NSCoder) {
+    //        aCoder.encodeObject(name, forKey: PropertyKey.nameKey)
+    //        aCoder.encodeObject(image, forKey: PropertyKey.imageKey)
+    //        aCoder.encodeObject(rating, forKey: PropertyKey.ratingKey)
+    //    }
+    //
+    //    required convenience init?(coder aDecoder: NSCoder) {
+    //        let name = aDecoder.decodeObjectForKey(PropertyKey.nameKey) as! String
+    //        let image = aDecoder.decodeObjectForKey(PropertyKey.imageKey) as? UIImage
+    //        let rating = aDecoder.decodeObjectForKey(PropertyKey.ratingKey) as! Int
+    //        self.init(name: name, rating: rating, image: image)
+    //    }
 }
 
 
