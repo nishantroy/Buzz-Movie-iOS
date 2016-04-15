@@ -50,6 +50,7 @@ class RatingsTabViewController: UITableViewController {
             print("Loading movies now")
             currentUserMovies.observeEventType(.Value) { (snapshot: FDataSnapshot!) in
                 let json = JSON(snapshot.value)
+                var movieArr = [Movie]()
                 print(json)
                 for (key, subJson) in json {
                     let name = key
@@ -62,9 +63,10 @@ class RatingsTabViewController: UITableViewController {
                         }
                     }
                     let movie = Movie(name: name, rating: userrating, image: image)
-                    self.myArray.append(movie!)
+                    movieArr.append(movie!)
                 }
+                self.myArray = movieArr
             }
-        }
+    }
     
 }
