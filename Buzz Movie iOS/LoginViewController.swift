@@ -100,6 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     self.view.makeToastActivity(.Center)
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    modifyRef(authData.uid)
                     currentUserEmail = (authData.providerData["email"] as? String)!
                     
                     print ("Logged in :)")

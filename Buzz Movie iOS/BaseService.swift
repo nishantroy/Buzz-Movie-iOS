@@ -18,17 +18,8 @@ let BASE_REF = Firebase(url: "https://buzzmovieios.firebaseio.com/")
 
 
 //Get current user from Firebase
-var currentUser: Firebase
-{
-    let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-    
-    let currUser = Firebase(url: "\(BASE_REF)").childByAppendingPath("users").childByAppendingPath(userId)
-    
-    
-    
-    
-    return currUser!
-}
+let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+var currentUser = Firebase(url: "\(BASE_REF)").childByAppendingPath("users").childByAppendingPath(userId)
 
 
 var currentUserName = currentUser.childByAppendingPath("Name")
@@ -36,6 +27,12 @@ var currentUserName = currentUser.childByAppendingPath("Name")
 var currentUserMovies = currentUser.childByAppendingPath("Movies")
 
 var currentUserEmail = String()
+
+func modifyRef(userId: String) {
+    currentUser = Firebase(url: "\(BASE_REF)").childByAppendingPath("users").childByAppendingPath(userId)
+    currentUserName = currentUser.childByAppendingPath("Name")
+    currentUserMovies = currentUser.childByAppendingPath("Movies")
+}
 
 //Firebase.defaultConfig().persistenceEnabled = true
 

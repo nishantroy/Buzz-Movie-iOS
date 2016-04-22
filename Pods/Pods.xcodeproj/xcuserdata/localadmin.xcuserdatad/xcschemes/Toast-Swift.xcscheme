@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CF3FD7CA01DDE94F38BFCED6'
-               BlueprintName = 'Firebase'
+               BlueprintIdentifier = '9542E4C62F634CAEA53A3FBD'
+               BlueprintName = 'Toast-Swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Firebase.framework'>
+               BuildableName = 'Toast_Swift.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
