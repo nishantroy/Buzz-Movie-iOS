@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Buzz Movie iOS/CreateAccountViewController.swift"
-            timestampString = "482039526.649322"
+            timestampString = "483044595.69276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "createAccountAction(_:)"
             landmarkType = "5">
          </BreakpointContent>
