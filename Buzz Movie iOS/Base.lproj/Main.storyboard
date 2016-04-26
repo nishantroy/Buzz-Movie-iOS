@@ -486,6 +486,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oMo-4d-xFW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585023564523" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1122,6 +1123,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movieSearch" translatesAutoresizingMaskIntoConstraints="NO" id="llK-gq-elD">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="hfP-qZ-03H"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hfP-qZ-03H"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="hfP-qZ-03H"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name.." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fHQ-fA-snl">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1131,17 +1148,25 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="qI6-aB-Abs"/>
+                                    <constraint firstAttribute="width" constant="84" id="sFa-gV-y1J"/>
                                 </constraints>
                                 <state key="normal" title="Search!"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="qI6-aB-Abs"/>
+                                        <exclude reference="sFa-gV-y1J"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                     <mask key="constraints">
                                         <include reference="qI6-aB-Abs"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="qI6-aB-Abs"/>
+                                        <include reference="sFa-gV-y1J"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -1152,22 +1177,39 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dQb-S8-dVt" firstAttribute="top" secondItem="fHQ-fA-snl" secondAttribute="bottom" constant="28" id="B4z-jo-v0k"/>
+                            <constraint firstItem="llK-gq-elD" firstAttribute="leading" secondItem="fHQ-fA-snl" secondAttribute="leading" id="Fw7-ih-IOb"/>
+                            <constraint firstItem="fHQ-fA-snl" firstAttribute="centerX" secondItem="dQb-S8-dVt" secondAttribute="centerX" id="H9g-mu-LbI"/>
+                            <constraint firstItem="dQb-S8-dVt" firstAttribute="top" secondItem="fHQ-fA-snl" secondAttribute="bottom" constant="28" id="Ozp-xB-vIE"/>
                             <constraint firstItem="fHQ-fA-snl" firstAttribute="leading" secondItem="zU4-pY-UwL" secondAttribute="leadingMargin" id="R88-nB-DrV"/>
+                            <constraint firstItem="llK-gq-elD" firstAttribute="trailing" secondItem="zU4-pY-UwL" secondAttribute="trailingMargin" id="b4H-Ar-Mda"/>
+                            <constraint firstItem="llK-gq-elD" firstAttribute="top" secondItem="zSx-iN-kr4" secondAttribute="bottom" constant="8" symbolic="YES" id="cCX-eJ-z5b"/>
+                            <constraint firstItem="zYt-c7-hgS" firstAttribute="top" secondItem="dQb-S8-dVt" secondAttribute="bottom" constant="345" id="ecz-5x-vgI"/>
+                            <constraint firstItem="llK-gq-elD" firstAttribute="leading" secondItem="zU4-pY-UwL" secondAttribute="leadingMargin" id="t2d-Ux-Tgk"/>
                             <constraint firstItem="fHQ-fA-snl" firstAttribute="centerX" secondItem="dQb-S8-dVt" secondAttribute="centerX" id="vcH-WJ-lo0"/>
                             <constraint firstItem="fHQ-fA-snl" firstAttribute="top" secondItem="zSx-iN-kr4" secondAttribute="bottom" constant="189" id="w4n-Fj-sdS"/>
                             <constraint firstItem="fHQ-fA-snl" firstAttribute="trailing" secondItem="zU4-pY-UwL" secondAttribute="trailingMargin" id="xOe-az-P4x"/>
+                            <constraint firstItem="llK-gq-elD" firstAttribute="trailing" secondItem="fHQ-fA-snl" secondAttribute="trailing" id="zl8-2j-2OL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="llK-gq-elD"/>
                                 <exclude reference="fHQ-fA-snl"/>
                                 <exclude reference="dQb-S8-dVt"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Fw7-ih-IOb"/>
+                                <exclude reference="b4H-Ar-Mda"/>
+                                <exclude reference="cCX-eJ-z5b"/>
+                                <exclude reference="t2d-Ux-Tgk"/>
+                                <exclude reference="zl8-2j-2OL"/>
+                                <exclude reference="H9g-mu-LbI"/>
                                 <exclude reference="R88-nB-DrV"/>
                                 <exclude reference="vcH-WJ-lo0"/>
                                 <exclude reference="w4n-Fj-sdS"/>
                                 <exclude reference="xOe-az-P4x"/>
                                 <exclude reference="B4z-jo-v0k"/>
+                                <exclude reference="Ozp-xB-vIE"/>
+                                <exclude reference="ecz-5x-vgI"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1183,6 +1225,26 @@
                                 <include reference="B4z-jo-v0k"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="llK-gq-elD"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Fw7-ih-IOb"/>
+                                <include reference="b4H-Ar-Mda"/>
+                                <include reference="cCX-eJ-z5b"/>
+                                <include reference="t2d-Ux-Tgk"/>
+                                <include reference="zl8-2j-2OL"/>
+                                <include reference="H9g-mu-LbI"/>
+                                <exclude reference="R88-nB-DrV"/>
+                                <exclude reference="vcH-WJ-lo0"/>
+                                <exclude reference="w4n-Fj-sdS"/>
+                                <exclude reference="xOe-az-P4x"/>
+                                <exclude reference="B4z-jo-v0k"/>
+                                <include reference="Ozp-xB-vIE"/>
+                                <include reference="ecz-5x-vgI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Search" id="NUL-cJ-hEz"/>
                     <connections>
@@ -1192,7 +1254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34B-Bj-Mhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1776" y="3118"/>
+            <point key="canvasLocation" x="-1776" y="3117.75"/>
         </scene>
         <!--Display Movie View Controller-->
         <scene sceneID="eKu-5R-938">
@@ -1514,6 +1576,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NfD-Me-VA3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585019999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1532,6 +1595,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FEo-qU-eCt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585019999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1551,6 +1615,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8VU-c4-Mt1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585019999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1570,6 +1635,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pwu-aX-ze9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585019999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1588,6 +1654,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O8U-Dm-Tk3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.90228585019999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1602,6 +1669,7 @@
     <resources>
         <image name="defaultPhoto" width="1000" height="1000"/>
         <image name="login page" width="150" height="150"/>
+        <image name="movieSearch" width="560" height="61"/>
         <image name="profileFilled" width="25" height="25"/>
         <image name="profileUnfilled" width="25" height="25"/>
         <image name="ratingFilled" width="25" height="25"/>
