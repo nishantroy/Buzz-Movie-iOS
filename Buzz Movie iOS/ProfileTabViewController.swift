@@ -26,15 +26,7 @@ class ProfileTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        //        nameLabel.text = BASE_REF.authData
-        
-        
-        //        BASE_REF.childByAppendingPath("users").queryOrderedByChild("")
-        //        if (userName != nil) {
-        //            nameLabel.text = userName
-        //        }
-        
+       
         
         
     }
